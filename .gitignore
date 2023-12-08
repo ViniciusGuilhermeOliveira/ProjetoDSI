@@ -1,0 +1,9 @@
+# ignorar os aquivos de extensão .bak
+*.bak
+
+# ignorar os aquivos de extensão .class
+*.class
+
+# ignorar a pasta build (binários) do projeto
+/build/
+/dist/

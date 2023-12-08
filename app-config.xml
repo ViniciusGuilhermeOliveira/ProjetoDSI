@@ -1,0 +1,14 @@
+<config>        
+
+    <database url="jdbc:mysql://localhost/transporte" user="root" password="root"/>
+
+    <!-- Exemplo FreeDB -->
+    <!--<database url="jdbc:mysql://sql.freedb.tech/freedb_sgcm_prof" user="freedb_popolinneto" password="FFe@ENf$&amp;9ssyn?"/>-->
+
+    <!-- Exemplo Acesso no Laboratório INFO4 -->
+    <!--<database url="jdbc:mysql://127.0.0.1:3307/sgcm_prof" user="root" password="root"/>-->
+
+    <!-- Exemplo Compuador Pessoal do Professor -->
+    <!--<database url="jdbc:mysql://localhost/sgcm_prof" user="root" password="1234"/>-->
+
+</config>
