@@ -4,6 +4,12 @@
  */
 package view;
 
+import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 import controller.ResultSetTableModel;
 import model.Poltrona;
 import model.Onibus;
@@ -12,10 +18,24 @@ import model.Onibus;
  * @author Aline
  */
 public class JFrameConsultaPassagens extends javax.swing.JFrame {
-    private Poltrona poltrona;
+    private  ArrayList <Poltrona> poltronArrayList = new ArrayList<>();
     private Onibus onibus;
+    private String query = "    select"
+                            +" codigo_poltrona as Poltrona,"
+                            +" case"
+                            +"     when status = 0 then 'disponível'"
+                            +"     when status = 1 then 'indisponível' END"
+                            +"     as Status,"
+                            +"     numero as Numero,"
+                            +"     codigo_onibus Onibus"
+                            +" from"
+                            +"     transporte.poltrona"
+                            +" where"
+                            +    " codigo_onibus = ";
+
+    private ResultSetTableModel result;
+    //private final TableRowSorter <TableModel> filter;                          
     
-    //private ResultSetTableModel poltrona;
     
     private boolean disconnectOnClose;
     /**
@@ -23,6 +43,21 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
      */
     public JFrameConsultaPassagens() {
         initComponents();
+    }
+
+    public JFrameConsultaPassagens(int codigoOnibus,boolean disconnectOnClose)throws SQLException{
+        initComponents();
+
+        this.disconnectOnClose = disconnectOnClose;
+        query += ""+codigoOnibus+"";
+        this.result = new ResultSetTableModel(query);
+        jTablePassagem.setModel(result);
+
+
+        
+
+        
+
     }
 
     /**
@@ -35,7 +70,7 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePassagem = new javax.swing.JTable();
         jLabelFiltro = new javax.swing.JLabel();
         jTextFieldFiltro = new javax.swing.JTextField();
         jButtonFiltrar = new javax.swing.JButton();
@@ -45,7 +80,7 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePassagem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -56,7 +91,7 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTablePassagem);
 
         jLabelFiltro.setText("Filtro");
 
@@ -67,6 +102,11 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
         jButtonAlterar.setText("Alterar");
 
         jButtonAdicionar.setText("Adicionar");
+        jButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAdicionarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -108,6 +148,33 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
+        // TODO add your handling code here:
+            Poltrona poltrona = new Poltrona();
+        int row = jTablePassagem.getSelectedRow();
+
+        int codigo = (int) this.result.getValueAt( row, 0 );
+
+        poltrona.setCodigoPoltrona(codigo);
+        
+
+       
+        if (poltrona.getStatusPoltrona() == 0){
+            this.poltronArrayList.add(poltrona);
+            
+        }
+    
+    }//GEN-LAST:event_jButtonAdicionarActionPerformed
+
+
+    
+       
+    
+    public ArrayList<Poltrona> getPoltronas() {
+        return this.poltronArrayList;
+    }
+
 
     /**
      * @param args the command line arguments
@@ -152,7 +219,9 @@ public class JFrameConsultaPassagens extends javax.swing.JFrame {
     private javax.swing.JButton jButtonSelecionar;
     private javax.swing.JLabel jLabelFiltro;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePassagem;
     private javax.swing.JTextField jTextFieldFiltro;
     // End of variables declaration//GEN-END:variables
+    
+    
 }

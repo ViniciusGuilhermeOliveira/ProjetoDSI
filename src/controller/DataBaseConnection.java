@@ -48,6 +48,7 @@ public final class DataBaseConnection {
     public void connect() throws SQLException {
         
         if ( connection == null ) {
+          //  Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection( url, user, password );
         }        
     }

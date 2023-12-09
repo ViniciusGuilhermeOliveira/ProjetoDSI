@@ -9,7 +9,7 @@ import model.Onibus;
  */
 public class Poltrona extends DataAccessObject{
     private int codigoPoltrona; //codigo no sistema
-    private Onibus onibus; //codigo onibus
+    private int onibus; //codigo onibus
     private int statusPoltrona; //Livre/Ocupada
     private int numeroPoltrona; //representa o número do assento no onibus
     
@@ -23,7 +23,7 @@ public class Poltrona extends DataAccessObject{
         return codigoPoltrona;
     }
 
-    public Onibus getOnibus() {
+    public int getOnibus() {
         return onibus;
     }
 
@@ -43,26 +43,9 @@ public class Poltrona extends DataAccessObject{
         }
     }
 
-    public void setOnibus(Onibus onibus) throws Exception{
-        if( this.onibus == null ) { 
-            if( onibus != null ) {
-                this.onibus = onibus;
-                this.onibus.setCodigoOnibus(onibus.getCodigoOnibus());
-                this.onibus.load();
-                addChange("codigo_onibus", this.onibus.getCodigoOnibus());
-            }        
-        } else { 
-            if( onibus == null ) {   
-                this.onibus = null;
-                addChange("codigo_onibus", null);   
-            } else {
-                if( !this.onibus.equals(onibus) ) {  
-                    this.onibus.setCodigoOnibus(onibus.getCodigoOnibus());
-                    this.onibus.load();
-                    addChange("codigo_onibus", this.onibus.getCodigoOnibus());                
-                }   
-            }   
-        }
+    public void setOnibus(int onibus) throws Exception{
+        this.onibus = onibus;
+
     }
 
     public void setStatusPoltrona(int statusPoltrona) {
@@ -89,9 +72,9 @@ public class Poltrona extends DataAccessObject{
     @Override
     protected void fill(ArrayList<Object> data) throws Exception {
         this.codigoPoltrona = (int) data.get(0);
-        this.onibus = (Onibus) data.get(1);
-        this.statusPoltrona = (int) data.get(2);
-        this.numeroPoltrona = (int) data.get(3);
+        this.statusPoltrona = (int) data.get(1);
+        this.numeroPoltrona = (int) data.get(2);
+        this.onibus = (int) data.get(3);
     }
     
 

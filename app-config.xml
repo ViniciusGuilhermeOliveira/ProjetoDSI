@@ -1,6 +1,6 @@
 <config>        
 
-    <database url="jdbc:mysql://localhost/transporte" user="root" password="root"/>
+    <database url="jdbc:mysql://localhost:3306/transporte" user="root" password="uiSlxZ955KkV4"/>
 
     <!-- Exemplo FreeDB -->
     <!--<database url="jdbc:mysql://sql.freedb.tech/freedb_sgcm_prof" user="freedb_popolinneto" password="FFe@ENf$&amp;9ssyn?"/>-->

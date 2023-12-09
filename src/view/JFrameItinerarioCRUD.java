@@ -35,37 +35,37 @@ public class JFrameItinerarioCRUD extends javax.swing.JFrame {
         // data.getter
         // java.swing.setter
         
-        jTextFieldCodigoItinerario.setText( String.valueOf( itinerario.getCodigoItinerario()) );
-        jTextFieldCodigoOnibus.setText( itinerario.getOnibus());        
-        jTextFieldValor.setText( itinerario.getValor());
-        jTextFieldOrigem.setText( itinerario.getOrigem());
-        jTextFieldEmissor.setText( itinerario.getOrgaoEmissor() );
-        jTextFieldCpf.setText( itinerario.getNumeroCpf() );
-        jTextFieldEndereco.setText( itinerario.getEndereco() );
-        jTextFieldNumero.setText( usuario.getNumero() );
-        jTextFieldComplemento.setText( usuario.getComplemento() );
-        jTextFieldBairro.setText( usuario.getBairro() );
-        jTextFieldCidade.setText( usuario.getCidade() );
-        jTextFieldEstado.setText( usuario.getEstado() );
-        jTextFieldTelefone.setText( usuario.getTelefone() );
-        jTextFieldCelular.setText( usuario.getCelular() );
-        jTextFieldEmail.setText( usuario.getEmail() );
-        jTextFieldCrm.setText( usuario.getCrm() ); 
-        
-        jPasswordFieldSenha.setText( usuario.getSenhaAcesso() );
-                
-        if( itinerario.getTipoUsuario().getNome() != null ) {
-            jTextFieldTipoUsuario.setText( usuario.getTipoUsuario().getNome() );
-        }
-        
-        if( usuario.getConvenio() != null ) {
-            jTextFieldConvenio.setText( usuario.getConvenio().getEmpresaConvenio() );
-        }
-        
-        if( usuario.getEspecialidade() != null ) {
-            jTextFieldEspecialidade.setText( usuario.getEspecialidade().getDescricaoEspecialidade() );
-        }
-        
+//        jTextFieldCodigoItinerario.setText( String.valueOf( itinerario.getCodigoItinerario()) );
+//        jTextFieldCodigoOnibus.setText( itinerario.getOnibus().toString());        
+//        jTextFieldValor.setText( itinerario.getValor());
+//        jTextFieldOrigem.setText( itinerario.getOrigem());
+//        jTextFieldEmissor.setText( itinerario.getOrgaoEmissor() );
+//        jTextFieldCpf.setText( itinerario.getNumeroCpf() );
+//        jTextFieldEndereco.setText( itinerario.getEndereco() );
+//        jTextFieldNumero.setText( usuario.getNumero() );
+//        jTextFieldComplemento.setText( usuario.getComplemento() );
+//        jTextFieldBairro.setText( usuario.getBairro() );
+//        jTextFieldCidade.setText( usuario.getCidade() );
+//        jTextFieldEstado.setText( usuario.getEstado() );
+//        jTextFieldTelefone.setText( usuario.getTelefone() );
+//        jTextFieldCelular.setText( usuario.getCelular() );
+//        jTextFieldEmail.setText( usuario.getEmail() );
+//        jTextFieldCrm.setText( usuario.getCrm() ); 
+//        
+//        jPasswordFieldSenha.setText( usuario.getSenhaAcesso() );
+//                
+//        if( itinerario.getTipoUsuario().getNome() != null ) {
+//            jTextFieldTipoUsuario.setText( usuario.getTipoUsuario().getNome() );
+//        }
+//        
+//        if( usuario.getConvenio() != null ) {
+//            jTextFieldConvenio.setText( usuario.getConvenio().getEmpresaConvenio() );
+//        }
+//        
+//        if( usuario.getEspecialidade() != null ) {
+//            jTextFieldEspecialidade.setText( usuario.getEspecialidade().getDescricaoEspecialidade() );
+//        }
+//        
     }
 
     /**
@@ -287,8 +287,8 @@ public class JFrameItinerarioCRUD extends javax.swing.JFrame {
 
     private void jButtonApagaCodigoOnibusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagaCodigoOnibusActionPerformed
         // TODO add your handling code here:
-        codigoOnibus = null;
-        jTextFieldTipoUsuario.setText( null );
+        //codigoOnibus = null;
+        //jTextFieldTipoUsuario.setText( null );
     }//GEN-LAST:event_jButtonApagaCodigoOnibusActionPerformed
 
     private void jButtonApagaDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApagaDestinoActionPerformed
@@ -329,7 +329,7 @@ public class JFrameItinerarioCRUD extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new JFrameItinerarioCRUD().setVisible(true);
+                //new JFrameItinerarioCRUD().setVisible(true);
             }
         });
     }
